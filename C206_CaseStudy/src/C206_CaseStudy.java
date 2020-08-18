@@ -44,8 +44,9 @@ public class C206_CaseStudy {
 	}
     
     // Bernadette
-    public static void viewMenuItem(ArrayList<MenuItem> menuList) {
+    public static void viewAllMenuItem(ArrayList<MenuItem> menuList) {
 		
 	}
+    
 
 }
