@@ -1,4 +1,5 @@
 
+// Bernadette
 public class MenuItem {
 	
 	private String category;
