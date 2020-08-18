@@ -16,8 +16,7 @@ public class C206_CaseStudy {
 		System.out.println("1. Menu Item");
 		System.out.println("2. Account");
 		System.out.println("3. Order");
-		System.out.println("4. Ingredient");
-		System.out.println("5. Promotion");
+		System.out.println("4. Promotion");
 		
 	}
 	
