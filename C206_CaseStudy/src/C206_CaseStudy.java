@@ -138,7 +138,6 @@ public class C206_CaseStudy {
 
 	}
 	
-	// Bernadette (inputMenuItem)
 	public static MenuItem inputMenuItem() {
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
@@ -156,7 +155,6 @@ public class C206_CaseStudy {
 
 	}
 	
-	// Bernadette - Menu Item (doDelete)
 	public static boolean doDelete(ArrayList<MenuItem> menuItemList, String category, String name, double price) {
 		boolean isDeleted = false;
 		
@@ -167,7 +165,6 @@ public class C206_CaseStudy {
 				menuItemList.get(i).setPrice(price);
 			}
 		}
-		
 		return isDeleted;
 	}
 

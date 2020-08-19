@@ -56,7 +56,8 @@ public class C206_CaseStudyTest {
 		// Menu Item list is not null, so that can add a new menu item - boundary
 		assertNotNull("Check if there is valid Menu Item arraylist to add to", menuItemList);
 
-		// Given an empty list, after adding 1 menu item, the size of the list is 1 - normal
+		// Given an empty list, after adding 1 menu item, the size of the list is 1 -
+		// normal
 		// The item just added is as same as the first item of the list
 		C206_CaseStudy.addMenuItem(menuItemList, m1);
 		assertEquals("Check that Camcorder arraylist size is 1", 1, menuItemList.size());
@@ -68,6 +69,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that Camcorder arraylist size is 2", 2, menuItemList.size());
 		assertSame("Check that Camcorder is added", m2, menuItemList.get(1));
 
+	}
+
+	// Bernadette
+	public void c206_testViewAllMenuItem() {
+		// Test if Menu Item list is not null but empty - boundary
+		assertNotNull("Test if there is valid Menu Item arraylist to view all menu items", menuItemList);
 	}
 
 	@Test
