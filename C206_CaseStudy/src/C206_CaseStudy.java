@@ -124,15 +124,23 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= Option 1 Add, View, Delete Menu Item =================================
+	// ================================= (Bernadette) Option 1 Add, View, Delete Menu Item =================================
 
-	// Bernadette
+	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
+		String output = "";
+		for (int i = 0; i < menuItemList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10s\n", 
+					menuItemList.get(i).getCategory(), menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+		}
+		return output;
+	}
+	
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			C206_CaseStudy.setHeader("MENU ITEM LIST");
 			String output = String.format("%-10s %-30s %-10s\n", "CATEGORY", "NAME", "PRICE");
-			output += String.format("%-10s %-30s %-10.2f", 
-					menuItemList.get(i).getCategory(), menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+			output += retrieveAllMenuItems(menuItemList);
 			System.out.println(output);
 		}
 
@@ -147,7 +155,6 @@ public class C206_CaseStudy {
 		return m;
 	}
 
-	// Bernadette
 	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem m) {
 		
 		menuItemList.add(m);
@@ -168,7 +175,7 @@ public class C206_CaseStudy {
 		return isDeleted;
 	}
 
-	// Bernadette
+	
 	public static void deleteMenuItem(ArrayList<MenuItem> menuItemList) {
 		C206_CaseStudy.viewAllMenuItem(menuItemList);
 		String category = Helper.readString("Enter category > ");
