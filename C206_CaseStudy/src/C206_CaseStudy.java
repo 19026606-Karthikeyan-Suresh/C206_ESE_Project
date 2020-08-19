@@ -39,7 +39,8 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 2) {
 					// Add Menu Item
-					C206_CaseStudy.addMenuItem(menuItemList);
+					MenuItem m = inputMenuItem();
+					C206_CaseStudy.addMenuItem(menuItemList, m);
 
 				} else if (itemType == 3) {
 					// Delete Menu Item
@@ -136,14 +137,20 @@ public class C206_CaseStudy {
 		}
 
 	}
-
-	// Bernadette
-	public static void addMenuItem(ArrayList<MenuItem> menuItemList) {
+	
+	// Bernadette (inputMenuItem)
+	public static MenuItem inputMenuItem() {
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");
 		
 		MenuItem m = new MenuItem(category, name, price);
+		return m;
+	}
+
+	// Bernadette
+	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem m) {
+		
 		menuItemList.add(m);
 		System.out.println("Menu Item Added");
 
