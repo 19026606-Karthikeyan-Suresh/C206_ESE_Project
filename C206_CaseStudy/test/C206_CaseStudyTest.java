@@ -168,5 +168,7 @@ public class C206_CaseStudyTest {
 
 	@After
 	public void tearDown() throws Exception {
+		m1 = null;
+		m2 = null;
 	}
 }
