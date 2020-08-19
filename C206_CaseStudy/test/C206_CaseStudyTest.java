@@ -62,7 +62,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that Camcorder arraylist size is 1", 1, menuItemList.size());
 		assertSame("Check that Camcorder is added", m1, menuItemList.get(0));
 
-		// Add another item. test The size of the list is 2? - normal
+		// Add another menu item. test The size of the list is 2? - normal
 		// The item just added is as same as the second item of the list
 		C206_CaseStudy.addMenuItem(menuItemList, m2);
 		assertEquals("Check that Camcorder arraylist size is 2", 2, menuItemList.size());
