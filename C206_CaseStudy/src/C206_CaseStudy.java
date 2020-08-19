@@ -50,6 +50,11 @@ public class C206_CaseStudy {
 
 			} else if (option == 2) {
 				// Ariezal
+				C206_CaseStudy.setHeader("View, Add, Delete Account");
+				userTypeMenu();
+				
+				int itemType = Helper.readInt("Enter option to select type > ");
+				
 
 			} else if (option == 3) {
 				// Kenneth
@@ -76,6 +81,10 @@ public class C206_CaseStudy {
 
 			} else if (option == 4) {
 				// Karthik
+				C206_CaseStudy.setHeader("View, Add, Delete Purchase Order");
+				userTypeMenu();
+				
+				int itemType = Helper.readInt("Enter option to select type > ");
 
 			} else if (option == 5) {
 
