@@ -1,28 +1,20 @@
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
-	//Karthik
-	private static ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
-
-	//Bernadette
-	private static ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
-
-	//Ariezal
-	private static ArrayList<Account> accountList = new ArrayList<Account>();
-
-	// Kenneth
-	private static ArrayList<String> orderList = new ArrayList<>();
 
 	public static void main(String[] args) {
 
 		// Bernadette
+		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
 
 		// Ariezal
+		ArrayList<Account> accountList = new ArrayList<Account>();
 
 		// Kenneth
-		orderList.add("Gyoza Set A");
-		orderList.add("Large Hawaiian Pizza");		
+		ArrayList<Order> orderList = new ArrayList<>();
+
 		// Karthik
+		ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
 
 		int option = 0;
 
@@ -38,7 +30,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.setHeader("View, Add, Delete Menu Items");
 				userTypeMenu();
 
-				int itemType = Helper.readInt("Enter option to select item type > "); 
+				int itemType = Helper.readInt("Enter option to select type > ");
 
 				if (itemType == 1) {
 					// View All Menu Item
@@ -61,7 +53,26 @@ public class C206_CaseStudy {
 
 			} else if (option == 3) {
 				// Kenneth
-				C206_CaseStudy.order();
+				C206_CaseStudy.setHeader("View, Add, Delete Order");
+				userTypeMenu();
+
+				int itemType = Helper.readInt("Enter option to select type > ");
+
+				if (itemType == 1) {
+					// View All Order
+					C206_CaseStudy.viewAllOrder(orderList);
+
+				} else if (itemType == 2) {
+					// Add Order
+					C206_CaseStudy.addMenuItem(menuItemList);
+
+				} else if (itemType == 3) {
+					// Delete Order
+					C206_CaseStudy.deleteMenuItem(menuItemList);
+
+				} else {
+					System.out.println("Invalid type");
+				}
 
 			} else if (option == 4) {
 				// Karthik
@@ -79,70 +90,9 @@ public class C206_CaseStudy {
 
 	public static void userTypeMenu() {
 		C206_CaseStudy.setHeader("USER TYPE MENU");
-		System.out.println("1. View All Menu Item");
-		System.out.println("2. Add Menu Item");
-		System.out.println("3. Delete Menu Item");
-		// Bernadette
-		// Ariezal
-		// Kenneth
-		// Karthik
-	}
-
-
-	public static void order() {
-		// Kenneth
-		int option = 0;
-
-		while(option != 4) {
-
-			System.out.println("1. Add to order"
-					+ "\n2. View order"
-					+ "\n3. Delete item in order"
-					+ "\n4. Exit order menu");
-
-			option = Helper.readInt("Enter an option> ");
-			if(option == 1) {
-				String item = Helper.readString("Enter an option> ");
-				if (!item.equalsIgnoreCase("") && !item.isEmpty())
-					C206_CaseStudy.addOrder(orderList, item);
-				else 
-					System.out.println("Invalid item");
-			}else if (option == 2) {
-				System.out.println(C206_CaseStudy.retrieveAllOrder(orderList));
-			}else if (option == 3) {
-				String item = Helper.readString("Enter an option> ");
-				if (!item.equalsIgnoreCase("") && !item.isEmpty())
-					for(String o: orderList) {
-						if(item.equalsIgnoreCase(o))
-							C206_CaseStudy.removeOrder(orderList, item);
-					}
-				else 
-					System.out.println("Invalid item");
-
-			}
-		}
-	}
-
-
-	static String retrieveAllOrder(ArrayList<String> orderList2) {
-		// Kenneth
-		String returnS = "";
-		for(String o: orderList2) {
-			returnS += String .format("\n%s", o);
-		}
-		return returnS;
-	}
-
-
-	static void removeOrder(ArrayList<String> orderList, String item) {
-		// Kenneth
-		orderList.remove(item);
-	}
-
-
-	static void addOrder(ArrayList<String> orderList, String item) {
-		// Kenneth
-		orderList.add(item);
+		System.out.println("1. View All");
+		System.out.println("2. Add");
+		System.out.println("3. Delete");
 
 	}
 
@@ -163,7 +113,8 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= Option 1 Add, View, Delete Menu Item =================================
+	// ================================= Option 1 Add, View, Delete Menu Item
+	// =================================
 
 	// Bernadette
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
@@ -182,8 +133,25 @@ public class C206_CaseStudy {
 
 	// ================================= Option 2 Add, View, Delete Account =================================
 
-	// ================================= Option 3 Add, View, Delete Order ===================================
+	// Kenneth
+	public static void viewAllOrder(ArrayList<Order> orderList) {
 
-	// ================================= Option 4 Add, View, Purchase Order =================================
+	}
+
+	// Kenneth
+	public static void addOrder(ArrayList<Order> orderList) {
+
+	}
+
+	// Kenneth
+	public static void removeOrder(ArrayList<Order> orderList) {
+
+	}
+
+	// ================================= Option 3 Add, View, Delete Order
+	// ===================================
+
+	// ================================= Option 4 Add, View, Purchase Order
+	// =================================
 
 }
