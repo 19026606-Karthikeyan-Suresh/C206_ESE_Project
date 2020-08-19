@@ -1,20 +1,28 @@
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
+  //Karthik
+  private static ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
+  
+  //Bernadette
+  private static ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
+
+  //Ariezal
+  private static ArrayList<Account> accountList = new ArrayList<Account>();
+
+  // Kenneth
+	private static ArrayList<String> orderList = new ArrayList<>();
 
 	public static void main(String[] args) {
-
+		
 		// Bernadette
-		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
 		
 		// Ariezal
-		ArrayList<Account> accountList = new ArrayList<Account>();
 		
 		// Kenneth
-		ArrayList<Order> orderList = new ArrayList<Order>();
-		
+    orderList.add("Gyoza Set A");
+		orderList.add("Large Hawaiian Pizza");		
 		// Karthik
-		ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
 
 		int option = 0;
 
@@ -22,6 +30,7 @@ public class C206_CaseStudy {
 
 			C206_CaseStudy.optionMenu();
 			option = Helper.readInt("Enter an option > ");
+			option = 3;/* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
 
 			if (option == 1) {
 				// Bernadette
@@ -52,6 +61,7 @@ public class C206_CaseStudy {
 
 			} else if (option == 3) {
 				// Kenneth
+        C206_CaseStudy.order();
 
 			} else if (option == 4) {
 				// Karthik
@@ -69,16 +79,74 @@ public class C206_CaseStudy {
 
 	public static void userTypeMenu() {
 		C206_CaseStudy.setHeader("USER TYPE MENU");
-		// Bernadette
 		System.out.println("1. View All Menu Item");
 		System.out.println("2. Add Menu Item");
 		System.out.println("3. Delete Menu Item");
+    // Bernadette
 		// Ariezal
 		// Kenneth
 		// Karthik
 	}
 
-	public static void optionMenu() {
+	
+	public static void order() {
+		// Kenneth
+		int option = 0;
+		
+		while(option != 4) {
+			
+			System.out.println("1. Add to order"
+					+ "\n2. View order"
+					+ "\n3. Delete item in order"
+					+ "\n4. Exit order menu");
+			
+			option = 3;/* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+			if(option == 1) {
+				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+				if (!item.equalsIgnoreCase("") && !item.isEmpty())
+					C206_CaseStudy.addOrder(orderList, item);
+				else 
+					System.out.println("Invalid item");
+			}else if (option == 2) {
+				System.out.println(C206_CaseStudy.retrieveAllOrder(orderList));
+			}else if (option == 3) {
+				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+				if (!item.equalsIgnoreCase("") && !item.isEmpty())
+				for(String o: orderList) {
+					if(item.equalsIgnoreCase(o))
+						C206_CaseStudy.removeOrder(orderList, item);
+				}
+				else 
+					System.out.println("Invalid item");
+				
+			}
+		}
+	}
+
+
+	 static String retrieveAllOrder(ArrayList<String> orderList2) {
+		// Kenneth
+		 String returnS = "";
+		 for(String o: orderList) {
+			 returnS += String .format("\n%s", o);
+		 }
+		 return returnS;
+		 }
+
+
+	static void removeOrder(ArrayList<String> orderList, String item) {
+		// TODO Auto-generated method stub
+		orderList.remove(item);
+	}
+
+
+	static void addOrder(ArrayList<String> orderList, String item) {
+		// TODO Auto-generated method stub
+		orderList.add(item);
+
+	}
+
+  public static void optionMenu() {
 		C206_CaseStudy.setHeader("OPTION MENU");
 		System.out.println("1. Menu Item");
 		System.out.println("2. Account");
