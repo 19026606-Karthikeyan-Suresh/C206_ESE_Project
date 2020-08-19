@@ -1,26 +1,26 @@
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
-  //Karthik
-  private static ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
-  
-  //Bernadette
-  private static ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
+	//Karthik
+	private static ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
 
-  //Ariezal
-  private static ArrayList<Account> accountList = new ArrayList<Account>();
+	//Bernadette
+	private static ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
 
-  // Kenneth
+	//Ariezal
+	private static ArrayList<Account> accountList = new ArrayList<Account>();
+
+	// Kenneth
 	private static ArrayList<String> orderList = new ArrayList<>();
 
 	public static void main(String[] args) {
-		
+
 		// Bernadette
-		
+
 		// Ariezal
-		
+
 		// Kenneth
-    orderList.add("Gyoza Set A");
+		orderList.add("Gyoza Set A");
 		orderList.add("Large Hawaiian Pizza");		
 		// Karthik
 
@@ -82,24 +82,24 @@ public class C206_CaseStudy {
 		System.out.println("1. View All Menu Item");
 		System.out.println("2. Add Menu Item");
 		System.out.println("3. Delete Menu Item");
-    // Bernadette
+		// Bernadette
 		// Ariezal
 		// Kenneth
 		// Karthik
 	}
 
-	
+
 	public static void order() {
 		// Kenneth
 		int option = 0;
-		
+
 		while(option != 4) {
-			
+
 			System.out.println("1. Add to order"
 					+ "\n2. View order"
 					+ "\n3. Delete item in order"
 					+ "\n4. Exit order menu");
-			
+
 			option = 3;/* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
 			if(option == 1) {
 				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
@@ -112,26 +112,26 @@ public class C206_CaseStudy {
 			}else if (option == 3) {
 				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
 				if (!item.equalsIgnoreCase("") && !item.isEmpty())
-				for(String o: orderList) {
-					if(item.equalsIgnoreCase(o))
-						C206_CaseStudy.removeOrder(orderList, item);
-				}
+					for(String o: orderList) {
+						if(item.equalsIgnoreCase(o))
+							C206_CaseStudy.removeOrder(orderList, item);
+					}
 				else 
 					System.out.println("Invalid item");
-				
+
 			}
 		}
 	}
 
 
-	 static String retrieveAllOrder(ArrayList<String> orderList2) {
+	static String retrieveAllOrder(ArrayList<String> orderList2) {
 		// Kenneth
-		 String returnS = "";
-		 for(String o: orderList2) {
-			 returnS += String .format("\n%s", o);
-		 }
-		 return returnS;
-		 }
+		String returnS = "";
+		for(String o: orderList2) {
+			returnS += String .format("\n%s", o);
+		}
+		return returnS;
+	}
 
 
 	static void removeOrder(ArrayList<String> orderList, String item) {
@@ -146,7 +146,7 @@ public class C206_CaseStudy {
 
 	}
 
-  public static void optionMenu() {
+	public static void optionMenu() {
 		C206_CaseStudy.setHeader("OPTION MENU");
 		System.out.println("1. Menu Item");
 		System.out.println("2. Account");
