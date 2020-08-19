@@ -70,11 +70,11 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 2) {
 					// Add Order
-					C206_CaseStudy.addMenuItem(menuItemList);
+					C206_CaseStudy.addOrder(orderList);
 
 				} else if (itemType == 3) {
 					// Delete Order
-					C206_CaseStudy.deleteMenuItem(menuItemList);
+					C206_CaseStudy.deleteOrder(orderList);
 
 				} else {
 					System.out.println("Invalid type");
@@ -123,8 +123,7 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= Option 1 Add, View, Delete Menu Item
-	// =================================
+	// ================================= Option 1 Add, View, Delete Menu Item =================================
 
 	// Bernadette
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
@@ -194,7 +193,7 @@ public class C206_CaseStudy {
 	}
 
 	// Kenneth
-	public static void removeOrder(ArrayList<Order> orderList) {
+	public static void deleteOrder(ArrayList<Order> orderList) {
 
 	}
 
