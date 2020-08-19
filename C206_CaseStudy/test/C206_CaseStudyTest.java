@@ -64,8 +64,7 @@ public class C206_CaseStudyTest {
 		//Remove another item. test The size of the list is 0? -normal
 		//The item just added is as same as the second item of the list
 		C206_CaseStudy.removeOrder(orderList, o2 );
-		assertEquals("Check that Order arraylist size is 0", 0, orderList.size());
-		}
+		assertEquals("Check that Order arraylist size is 0", 0, orderList.size());}
 	
 	@Test
 	public void retrieveAllOrderTest() {
