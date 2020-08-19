@@ -6,8 +6,8 @@ public class C206_CaseStudy {
 
 		// Bernadette
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
-		menuItemList.add(new MenuItem("Hot Beverages", "Espresso Coffee", 4.70));
-		menuItemList.add(new MenuItem("Cold Beverages", "Ice Milo", 3.50));
+		menuItemList.add(new MenuItem("Smoothies", "Strawberry", 4.70));
+		menuItemList.add(new MenuItem("Soda", "Coca Cola", 1.50));
 
 		// Ariezal
 		ArrayList<Account> accountList = new ArrayList<Account>();
