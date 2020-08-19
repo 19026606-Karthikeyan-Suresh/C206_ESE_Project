@@ -11,7 +11,7 @@ public class C206_CaseStudy {
 		ArrayList<Account> accountList = new ArrayList<Account>();
 
 		// Kenneth
-		ArrayList<Order> orderList = new ArrayList<>();
+		ArrayList<Order> orderList = new ArrayList<Order>();
 
 		// Karthik
 		ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
