@@ -10,7 +10,7 @@ public class C206_CaseStudyTest {
 	private String o1;
 	private String o2;
 	
-	private ArrayList<String> orderList;
+	private ArrayList<String> orderList = new ArrayList<>();
 	
 	public C206_CaseStudyTest() {
 		super();
@@ -82,10 +82,13 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addOrder(orderList, o2);
 		assertEquals("Test that Order arraylist size is 2", 2, orderList.size());
 		
-		//test if the expected output string same as the list of orders retrieved from the SourceCentre	
+		//test if the expected output string same as the list of orders retrieved from the SourceCentre
+		orderList.removeAll(orderList);
+		C206_CaseStudy.addOrder(orderList, "PINEAPPLE");
+		C206_CaseStudy.addOrder(orderList, "ORANGE");
 		allOrder = C206_CaseStudy.retrieveAllOrder(orderList);
-		testOutput = String.format("PINEAPPLE");
-		testOutput += String.format("ORANGE");
+		testOutput = String.format("\nPINEAPPLE");
+		testOutput += String.format("\nORANGE");
 	
 		assertEquals("Test that ViewAllOrderlist", testOutput, allOrder);
 		

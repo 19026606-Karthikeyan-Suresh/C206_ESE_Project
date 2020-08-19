@@ -61,7 +61,7 @@ public class C206_CaseStudy {
 
 			} else if (option == 3) {
 				// Kenneth
-        C206_CaseStudy.order();
+				C206_CaseStudy.order();
 
 			} else if (option == 4) {
 				// Karthik
@@ -127,7 +127,7 @@ public class C206_CaseStudy {
 	 static String retrieveAllOrder(ArrayList<String> orderList2) {
 		// Kenneth
 		 String returnS = "";
-		 for(String o: orderList) {
+		 for(String o: orderList2) {
 			 returnS += String .format("\n%s", o);
 		 }
 		 return returnS;
@@ -135,13 +135,13 @@ public class C206_CaseStudy {
 
 
 	static void removeOrder(ArrayList<String> orderList, String item) {
-		// TODO Auto-generated method stub
+		// Kenneth
 		orderList.remove(item);
 	}
 
 
 	static void addOrder(ArrayList<String> orderList, String item) {
-		// TODO Auto-generated method stub
+		// Kenneth
 		orderList.add(item);
 
 	}
