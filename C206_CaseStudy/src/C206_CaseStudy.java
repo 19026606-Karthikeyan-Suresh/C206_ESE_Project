@@ -38,7 +38,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.setHeader("View, Add, Delete Menu Items");
 				userTypeMenu();
 
-				int itemType = Helper.readInt("Enter option to select item type > ");
+				int itemType = 3; /*Helper.readInt("Enter option to select item type > "); */
 
 				if (itemType == 1) {
 					// View All Menu Item
