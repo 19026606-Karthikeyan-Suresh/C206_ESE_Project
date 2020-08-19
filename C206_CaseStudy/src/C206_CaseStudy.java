@@ -6,6 +6,8 @@ public class C206_CaseStudy {
 
 		// Bernadette
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
+		menuItemList.add(new MenuItem("Hot Beverages", "Espresso Coffee", 4.70));
+		menuItemList.add(new MenuItem("Cold Beverages", "Ice Milo", 3.50));
 
 		// Ariezal
 		ArrayList<Account> accountList = new ArrayList<Account>();
@@ -22,7 +24,6 @@ public class C206_CaseStudy {
 
 			C206_CaseStudy.optionMenu();
 			option = Helper.readInt("Enter an option > ");
-			option = Helper.readInt("Enter an option> ");
 
 			if (option == 1) {
 				// Bernadette
@@ -127,16 +128,56 @@ public class C206_CaseStudy {
 
 	// Bernadette
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
+		for (int i = 0; i < menuItemList.size(); i++) {
+			C206_CaseStudy.setHeader("MENU ITEM LIST");
+			String output = String.format("%-10s %-30s %-10s\n", "CATEGORY", "NAME", "PRICE");
+			output += String.format("%-10s %-30s %-10.2f", 
+					menuItemList.get(i).getCategory(), menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+			System.out.println(output);
+		}
 
 	}
 
 	// Bernadette
 	public static void addMenuItem(ArrayList<MenuItem> menuItemList) {
+		String category = Helper.readString("Enter category > ");
+		String name = Helper.readString("Enter name > ");
+		double price = Helper.readDouble("Enter price > ");
+		
+		MenuItem m = new MenuItem(category, name, price);
+		menuItemList.add(m);
+		System.out.println("Menu Item Added");
 
+	}
+	
+	// Bernadette - Menu Item (doDelete)
+	public static boolean doDelete(ArrayList<MenuItem> menuItemList, String category, String name, double price) {
+		boolean isDeleted = false;
+		
+		for (int i = 0; i < menuItemList.size(); i++) {
+			String c = menuItemList.get(i).getCategory();
+			if (category.equalsIgnoreCase(c)) {
+				menuItemList.get(i).setName(name);
+				menuItemList.get(i).setPrice(price);
+			}
+		}
+		
+		return isDeleted;
 	}
 
 	// Bernadette
 	public static void deleteMenuItem(ArrayList<MenuItem> menuItemList) {
+		C206_CaseStudy.viewAllMenuItem(menuItemList);
+		String category = Helper.readString("Enter category > ");
+		String name = Helper.readString("Enter name > ");
+		double price = Helper.readDouble("Enter price > ");
+		Boolean isDeleted = doDelete(menuItemList, category, name, price);
+		if (isDeleted == false) {
+			System.out.println("Invalid category");
+		} else {
+			System.out.println("Menu Item " + category + " is deleted");
+		}
+		
 
 	}
 
