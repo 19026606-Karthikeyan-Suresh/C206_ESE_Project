@@ -30,7 +30,7 @@ public class C206_CaseStudy {
 
 			C206_CaseStudy.optionMenu();
 			option = Helper.readInt("Enter an option > ");
-			option = 3;/* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+			option = Helper.readInt("Enter an option> ");
 
 			if (option == 1) {
 				// Bernadette
@@ -38,7 +38,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.setHeader("View, Add, Delete Menu Items");
 				userTypeMenu();
 
-				int itemType = 3; /*Helper.readInt("Enter option to select item type > "); */
+				int itemType = Helper.readInt("Enter option to select item type > "); 
 
 				if (itemType == 1) {
 					// View All Menu Item
@@ -100,9 +100,9 @@ public class C206_CaseStudy {
 					+ "\n3. Delete item in order"
 					+ "\n4. Exit order menu");
 
-			option = 3;/* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+			option = Helper.readInt("Enter an option> ");
 			if(option == 1) {
-				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+				String item = Helper.readString("Enter an option> ");
 				if (!item.equalsIgnoreCase("") && !item.isEmpty())
 					C206_CaseStudy.addOrder(orderList, item);
 				else 
@@ -110,7 +110,7 @@ public class C206_CaseStudy {
 			}else if (option == 2) {
 				System.out.println(C206_CaseStudy.retrieveAllOrder(orderList));
 			}else if (option == 3) {
-				String item = "Gyoza"; /* no helper so just enter some random number you want to test your code Helper.readInt("Enter an option> ");*/
+				String item = Helper.readString("Enter an option> ");
 				if (!item.equalsIgnoreCase("") && !item.isEmpty())
 					for(String o: orderList) {
 						if(item.equalsIgnoreCase(o))
