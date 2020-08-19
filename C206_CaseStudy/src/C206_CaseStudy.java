@@ -78,8 +78,7 @@ public class C206_CaseStudy {
 		 for(String o: orderList) {
 			 returnS += String .format("\n%s", o);
 		 }
-		 return returnS;
-	}
+		 return returnS;}
 
 
 	static void removeOrder(ArrayList<String> orderList, String item) {
