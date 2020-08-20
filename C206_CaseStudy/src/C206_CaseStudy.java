@@ -71,7 +71,7 @@ public class C206_CaseStudy {
 					
 				} else if (itemType == 2) {
 					// Add Account
-					
+					Account a = inputAccount();
 					C206_CaseStudy.addAccount(accountList);
 					
 				} else if (itemType == 3) {
@@ -215,6 +215,7 @@ public class C206_CaseStudy {
 	}
 
 	// ================================= Option 2 Add, View, Delete Account =================================
+	//Retrieving account list.
 	public static String retrieveAllAccounts(ArrayList<Account> accountList) {
 		String output = "";
 		for (int i = 0; i < accountList.size(); i++) {
@@ -224,7 +225,7 @@ public class C206_CaseStudy {
 
 		}
 		return output;
-	}
+	} //Viewing Account List
 	public static void viewAllAccounts(ArrayList<Account> accountList) {
 		for (int i = 0; i < accountList.size(); i++) {
 			C206_CaseStudy.setHeader("ACCOUNT LIST");
@@ -232,7 +233,23 @@ public class C206_CaseStudy {
 			output += retrieveAllAccounts(accountList);
 			System.out.println(output);
 		}
+	} //Inputing Account
+	public static Account inputAccount() {
+		String username = Helper.readString("Enter Username > ");
+		String password = Helper.readString("Enter Password > ");
+		String userRole = Helper.readString("Enter userRole > ");
+		
+		Account a = new Account(username, password, userRole);
+		return a;
+	} //Adding Account
+	public static void addAccount (ArrayList<Account> accountList, Account a) {
+		
+		accountList.add(a);
+		System.out.println("New Account Added!");
+
 	}
+	
+	
 	// ================================= Option 3 Add, View, Delete Order ===================================
 
 
