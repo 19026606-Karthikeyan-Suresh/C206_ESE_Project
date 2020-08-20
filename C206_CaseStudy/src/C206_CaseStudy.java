@@ -110,6 +110,27 @@ public class C206_CaseStudy {
 				userTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select type > ");
+				
+				if (itemType == 1) {
+					//View all purchase orders
+					C206_CaseStudy.ViewAllPurchaseOrders(purchaseOrderList);
+					
+				} else if (itemType == 2) {
+					// Add item to purchase
+					C206_CaseStudy.AddPurchaseOrder(purchaseOrderList);
+					
+				} else if (itemType == 3) {
+					//Delete item from purchase order list
+					C206_CaseStudy.DeletePurchaseOrderListItem(purchaseOrderList);
+					
+				} else if (itemType == 4) {
+					//Delete purchase order list
+					C206_CaseStudy.DeletePurchaseOrderList(purchaseOrderList);
+					
+				} else {
+					System.out.println("Invalid type");
+				}
+					
 
 			} else if (option == 5) {
 
@@ -120,6 +141,26 @@ public class C206_CaseStudy {
 			}
 		}
 
+	}
+
+	private static void DeletePurchaseOrderList(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void DeletePurchaseOrderListItem(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void AddPurchaseOrder(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void ViewAllPurchaseOrders(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public static void userTypeMenu() {
