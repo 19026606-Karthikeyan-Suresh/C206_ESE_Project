@@ -9,8 +9,12 @@ public class C206_CaseStudy {
 		menuItemList.add(new MenuItem("Smoothies", "Strawberry", 4.70));
 		menuItemList.add(new MenuItem("Soda", "Coca Cola", 1.50));
 
-		// Ariezal
+		// Ariezal 
 		ArrayList<Account> accountList = new ArrayList<Account>();
+		accountList.add(new Account("James", "canteen123" , "Staff" ));
+		accountList.add(new Account("Zac", "canteen123", "Canteen Admin"));
+		accountList.add(new Account("Joe", "canteen123", "Customer"));
+		
 
 		// Kenneth
 		ArrayList<Order> orderList = new ArrayList<Order>();
@@ -54,8 +58,9 @@ public class C206_CaseStudy {
 				// Ariezal
 				C206_CaseStudy.setHeader("View, Add, Delete Account");
 				userTypeMenu();
-
+				
 				int itemType = Helper.readInt("Enter option to select type > ");
+				
 
 			} else if (option == 3) {
 				// Kenneth
@@ -84,7 +89,7 @@ public class C206_CaseStudy {
 				// Karthik
 				C206_CaseStudy.setHeader("View, Add, Delete Purchase Order");
 				userTypeMenu();
-
+				
 				int itemType = Helper.readInt("Enter option to select type > ");
 
 			} else if (option == 5) {
@@ -123,19 +128,18 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= (Bernadette) Option 1 Add, View, Delete
-	// Menu Item =================================
+	// ================================= (Bernadette) Option 1 Add, View, Delete Menu Item =================================
 
 	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
 		String output = "";
 		for (int i = 0; i < menuItemList.size(); i++) {
 
-			output += String.format("%-10s %-30s %-10s\n", menuItemList.get(i).getCategory(),
-					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+			output += String.format("%-10s %-30s %-10s\n", 
+					menuItemList.get(i).getCategory(), menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
 		}
 		return output;
 	}
-
+	
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			C206_CaseStudy.setHeader("MENU ITEM LIST");
@@ -145,26 +149,26 @@ public class C206_CaseStudy {
 		}
 
 	}
-
+	
 	public static MenuItem inputMenuItem() {
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");
-
+		
 		MenuItem m = new MenuItem(category, name, price);
 		return m;
 	}
 
 	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem m) {
-
+		
 		menuItemList.add(m);
 		System.out.println("Menu Item Added");
 
 	}
-
+	
 	public static boolean doDelete(ArrayList<MenuItem> menuItemList, String category, String name, double price) {
 		boolean isDeleted = false;
-
+		
 		for (int i = 0; i < menuItemList.size(); i++) {
 			String c = menuItemList.get(i).getCategory();
 			if (category.equalsIgnoreCase(c)) {
@@ -175,6 +179,7 @@ public class C206_CaseStudy {
 		return isDeleted;
 	}
 
+	
 	public static void deleteMenuItem(ArrayList<MenuItem> menuItemList) {
 		C206_CaseStudy.viewAllMenuItem(menuItemList);
 		String category = Helper.readString("Enter category > ");
@@ -186,14 +191,11 @@ public class C206_CaseStudy {
 		} else {
 			System.out.println("Menu Item " + category + " is deleted");
 		}
+		
 
 	}
 
-	// ================================= Option 2 Add, View, Delete Account
-	// =================================
-
-	// ================================= Option 3 Add, View, Delete Order
-	// ===================================
+	// ================================= Option 2 Add, View, Delete Account =================================
 
 	// Kenneth
 	public static void viewAllOrder(ArrayList<Order> orderList) {
@@ -210,7 +212,8 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 4 Add, View, Purchase Order
-	// =================================
+	// ================================= Option 3 Add, View, Delete Order ===================================
+
+	// ================================= Option 4 Add, View, Purchase Order =================================
 
 }
