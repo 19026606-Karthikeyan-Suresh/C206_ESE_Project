@@ -22,7 +22,10 @@ public class C206_CaseStudy {
 
 		// Karthik
 		ArrayList<PurchaseOrder> purchaseOrderList = new ArrayList<PurchaseOrder>();
-
+		purchaseOrderList.add(new PurchaseOrder("Strawberry carton", 10, 4.50, "26/10/2020"));
+		purchaseOrderList.add(new PurchaseOrder("CocaCola Can", 30, 1.50, "26/10/2020"));
+		
+		
 		int option = 0;
 
 		while (option != 5) {
