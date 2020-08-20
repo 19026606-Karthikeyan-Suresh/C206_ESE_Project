@@ -14,6 +14,7 @@ public class C206_CaseStudy {
 		accountList.add(new Account("James", "canteen123" , "Staff" ));
 		accountList.add(new Account("Zac", "canteen123", "Canteen Admin"));
 		accountList.add(new Account("Joe", "canteen123", "Customer"));
+		accountList.add(new Account("Aaron", "canteen123" , "Staff" ));
 		
 
 		// Kenneth
