@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 // Ariezal
 public class Account {
@@ -34,6 +33,11 @@ public class Account {
 
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
+	}
+	
+	public String toString() {
+		return null;
+		
 	}
 	
 	
