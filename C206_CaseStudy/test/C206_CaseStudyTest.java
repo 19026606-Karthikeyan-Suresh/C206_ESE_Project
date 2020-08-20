@@ -26,7 +26,9 @@ public class C206_CaseStudyTest {
 
 	// Kenneth
 	private ArrayList<Order> orderList;
+	private ArrayList<MenuItem> orderMenuList;
 
+	
 	public C206_CaseStudyTest() {
 		super();
 	}
@@ -43,7 +45,11 @@ public class C206_CaseStudyTest {
 
 		// Kenneth
 		orderList = new ArrayList<Order>();
-	}
+		orderMenuList = new ArrayList<MenuItem>();
+		orderMenuList.add(m1);
+		orderMenuList.add(m2);
+		Order o1 = new Order("Jerry", "pending", false, orderMenuList);
+}
 
 	@Test
 	public void c206_test() {
@@ -90,6 +96,39 @@ public class C206_CaseStudyTest {
 		testOutput += String.format("%-10s %-30s %-10s\n", "Desserts", "Cakes", 3.00);
 		assertEquals("Test that ViewAllMenuItemlist", testOutput, allMenuItems);
 	}
+	
+	@Test //Kenneth
+	public void c206_testViewAllOrder() {
+		// Test if Menu Item list is not null but empty - error
+		assertNotNull("Test if there is valid Order Item arraylist to view all order items", orderList);
+
+		// test if the list of menu items retrieved from the C206 Case Study is empty -error
+		String allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
+		String testOutput = "";
+		assertEquals("Check that OrderList is not empty", testOutput, allOrders);
+
+		orderList.add(o1);
+		allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
+		assertNotNull("Test if there is valid Order Item to view in ArrayList", allOrders);
+		
+	}
+	
+	@Test //Kenneth
+//	public void c206_testStoreOrder() {
+//		// Test if Menu Item list is not null but empty - error
+//		assertNotNull("Test if there is valid Order Item arraylist to view all order items", orderList);
+//
+//		// test if the list of menu items retrieved from the C206 Case Study is empty -error
+//		String allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
+//		String testOutput = "";
+//		assertEquals("Check that OrderList is not empty", testOutput, allOrders);
+//
+//		orderList.add(o1);
+//		allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
+//		assertNotNull("Test if there is valid Order Item to view in ArrayList", allOrders);
+//		
+//	}
+
 
 	@After
 	public void tearDown() throws Exception {
