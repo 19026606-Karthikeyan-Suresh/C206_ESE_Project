@@ -124,7 +124,7 @@ public class C206_CaseStudy {
 					C206_CaseStudy.DeletePurchaseOrderListItem(purchaseOrderList);
 					
 				} else if (itemType == 4) {
-					//Delete purchase order list
+					//Delete purchase in order list
 					C206_CaseStudy.DeletePurchaseOrderList(purchaseOrderList);
 					
 				} else {
