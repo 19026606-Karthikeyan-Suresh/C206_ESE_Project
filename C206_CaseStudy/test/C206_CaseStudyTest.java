@@ -69,9 +69,9 @@ public class C206_CaseStudyTest {
 	}
 
 	@Test // Bernadette
-	public void c206_testViewAllMenuItem() {
-		// Test if Menu Item list is not null but empty - boundary
-		assertNotNull("Test if there is valid Menu Item arraylist to view all menu items", menuItemList);
+	public void c206_retrieveAllMenuItemTest() {
+		// Test if Menu Item list is null - error
+		assertNull("Test if there is valid Menu Item arraylist to retrieve menu items", menuItemList);
 
 		// test if the list of menu items retrieved from the C206 Case Study is empty - boundary
 		String allMenuItems = C206_CaseStudy.retrieveAllMenuItems(menuItemList);
