@@ -60,6 +60,22 @@ public class C206_CaseStudy {
 				userTypeMenu();
 
 				int itemType = Helper.readInt("Enter option to select type > ");
+		
+				if (itemType == 1) {
+					// View All Accounts
+					C206_CaseStudy.viewAllAccounts(accountList);
+					
+				} else if (itemType == 2) {
+					// Add Account
+					Account a = inputAccount();
+					C206_CaseStudy.addAccount(accountList);
+					
+				} else if (itemType == 3) {
+					// Delete Account
+					C206_CaseStudy.deleteAccount(accountList);
+					
+				} else {
+					System.out.println("Invalid type");
 
 			} else if (option == 3) {
 				// Kenneth
@@ -90,6 +106,23 @@ public class C206_CaseStudy {
 				userTypeMenu();
 
 				int itemType = Helper.readInt("Enter option to select type > ");
+				
+				if (itemType == 1) {
+					//View all purchase orders
+					C206_CaseStudy.viewAllPurchaseOrders(purchaseOrderList);
+					
+				} else if (itemType == 2) {
+					// Add item to purchase
+					C206_CaseStudy.addPurchaseOrder(purchaseOrderList);
+					
+				} else if (itemType == 3) {
+					//Delete purchase in order list
+					C206_CaseStudy.deletePurchaseOrder(purchaseOrderList);
+					
+				} else {
+					System.out.println("Invalid type");
+				}
+					
 
 			} else if (option == 5) {
 
@@ -127,17 +160,16 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= (Bernadette) Option 1 Add, View, Delete Menu Item =================================
+	// ================================= (Bernadette) Option 1 Add, View, Delete
+	// Menu Item =================================
 
 	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
 		String output = "";
 		for (int i = 0; i < menuItemList.size(); i++) {
 
-			output += String.format("%-10s %-30s %-10s\n", menuItemList.get(i).getCategory(),
-					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
-
 			output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
 					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+
 		}
 		return output;
 	}
@@ -195,9 +227,77 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 2 Add, View, Delete Account =================================
+	// ================================= Option 2 Add, View, Delete Account
+	// =================================
 
-	// ================================= Option 3 Add, View, Delete Order ===================================
+	// ================================= Option 2 (Ariezal) Add, View, Delete
+	// Account =================================
+	// Retrieving account list.
+	public static String retrieveAllAccounts(ArrayList<Account> accountList) {
+		String output = "";
+		for (int i = 0; i < accountList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10.2f\n", accountList.get(i).getUsername(),
+					accountList.get(i).getPassword(), accountList.get(i).getUserRole());
+
+		}
+		return output;
+	} // Viewing Account List
+
+	public static void viewAllAccounts(ArrayList<Account> accountList) {
+		for (int i = 0; i < accountList.size(); i++) {
+			C206_CaseStudy.setHeader("ACCOUNT LIST");
+			String output = String.format("%-10s %-30s %-10s\n", "USERNAME", "PASSWORD", "USER ROLE");
+			output += retrieveAllAccounts(accountList);
+			System.out.println(output);
+		}
+	} // Inputing Account
+
+	public static Account inputAccount() {
+		String username = Helper.readString("Enter Username > ");
+		String password = Helper.readString("Enter Password > ");
+		String userRole = Helper.readString("Enter userRole > ");
+
+		Account a = new Account(username, password, userRole);
+		return a;
+	} // Adding Account
+
+	public static void addAccount(ArrayList<Account> accountList, Account a) {
+
+		accountList.add(a);
+		System.out.println("New Account Added!");
+
+	}
+
+	public static boolean doDelete(ArrayList<Account> accountList, String username, String password, String userRole) {
+		boolean isDeleted = false;
+
+		for (int i = 0; i < accountList.size(); i++) {
+			String z = accountList.get(i).getUsername();
+			if (username.equalsIgnoreCase(z)) {
+				accountList.get(i).setPassword(password);
+				accountList.get(i).setUserRole(userRole);
+			}
+		}
+		return isDeleted;
+	}
+
+	public static void deleteAccount(ArrayList<Account> accountList) {
+		C206_CaseStudy.viewAllAccounts(accountList);
+		String username = Helper.readString("Enter Username > ");
+		String password = Helper.readString("Enter Password > ");
+		String userRole = Helper.readString("Enter User Role > ");
+		Boolean isDeleted = doDelete(accountList, username, password, userRole);
+		if (isDeleted == false) {
+			System.out.println("Account does not exist.");
+		} else {
+			System.out.println("Staff " + username + "'s account has been deleted.");
+		}
+
+	}
+
+	// ================================= Option 3 Add, View, Delete Order
+	// ===================================
 
 	// Kenneth
 	public static void viewAllOrder(ArrayList<Order> orderList) {
@@ -214,6 +314,22 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 4 Add, View, Purchase Order=================================
+	// ================================= Option 4 Add, View, Purchase
+	// Order=================================
+
+	private static void deletePurchaseOrder(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void addPurchaseOrder(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void viewAllPurchaseOrders(ArrayList<PurchaseOrder> purchaseOrderList) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
