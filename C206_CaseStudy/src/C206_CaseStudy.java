@@ -67,7 +67,7 @@ public class C206_CaseStudy {
 				
 				if (itemType == 1) {
 					// View All Accounts
-					C206_CaseStudy.viewAllAccount(accountList);
+					C206_CaseStudy.viewAllAccounts(accountList);
 					
 				} else if (itemType == 2) {
 					// Add Account
@@ -225,7 +225,14 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
-
+	public static void viewAllAccounts(ArrayList<Account> accountList) {
+		for (int i = 0; i < accountList.size(); i++) {
+			C206_CaseStudy.setHeader("ACCOUNT LIST");
+			String output = String.format("%-10s %-30s %-10s\n", "USERNAME", "PASSWORD", "USER ROLE");
+			output += retrieveAllAccounts(accountList);
+			System.out.println(output);
+		}
+	}
 	// ================================= Option 3 Add, View, Delete Order ===================================
 
 
