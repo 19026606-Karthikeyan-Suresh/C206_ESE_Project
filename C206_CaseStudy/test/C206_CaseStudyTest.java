@@ -16,8 +16,10 @@ public class C206_CaseStudyTest {
 	private Order o2;
 
 	// Ariezal
+	private ArrayList<Account> accountList;
 
 	// Karthik
+	private ArrayList<PurchaseOrder> purchaseOrderList;
 
 	// Bernadette
 	private ArrayList<MenuItem> menuItemList;
@@ -35,9 +37,7 @@ public class C206_CaseStudyTest {
 		m1 = new MenuItem("Snacks", "Biscuits", 3.70);
 		m2 = new MenuItem("Desserts", "Cakes", 3.00);
 
-		String o1 = "APPLE";
-		String o2 = "PEAR";
-
+		
 		// Bernadette
 		menuItemList = new ArrayList<MenuItem>();
 

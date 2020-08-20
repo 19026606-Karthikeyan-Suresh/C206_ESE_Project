@@ -36,6 +36,11 @@ public class Account {
 		this.userRole = userRole;
 	}
 	
+	public String toString() {
+		return null;
+		
+	}
+	
 	
 	
 
