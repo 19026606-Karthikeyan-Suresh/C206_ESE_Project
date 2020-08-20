@@ -150,13 +150,8 @@ public class C206_CaseStudy {
 		String output = "";
 		for (int i = 0; i < menuItemList.size(); i++) {
 
-<<<<<<< HEAD
-			output += String.format("%-10s %-30s %-10s\n", 
-					menuItemList.get(i).getCategory(), menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
-=======
-			output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
+			output += String.format("%-10s %-30s %-10s\n", menuItemList.get(i).getCategory(), 
 					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
->>>>>>> branch 'master' of https://github.com/19026606-Karthikeyan-Suresh/C206_ESE_Project.git
 		}
 		return output;
 	}
@@ -217,11 +212,19 @@ public class C206_CaseStudy {
 	}
 
 	// ================================= Option 2 Add, View, Delete Account =================================
-<<<<<<< HEAD
-=======
+	public static String retrieveAllAccounts(ArrayList<Account> accountList) {
+		String output = "";
+		for (int i = 0; i < accountList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10.2f\n", accountList.get(i).getUsername(),
+					accountList.get(i).getPassword(), accountList.get(i).getUserRole());
+
+		}
+		return output;
+	}
 
 	// ================================= Option 3 Add, View, Delete Order ===================================
->>>>>>> branch 'master' of https://github.com/19026606-Karthikeyan-Suresh/C206_ESE_Project.git
+
 
 	// Kenneth
 	public static void viewAllOrder(ArrayList<Order> orderList) {
