@@ -120,7 +120,7 @@ public class C206_CaseStudy {
 					C206_CaseStudy.AddPurchaseOrder(purchaseOrderList);
 					
 				} else if (itemType == 3) {
-					//Delete item from purchase order list
+					//Delete item in purchase order list
 					C206_CaseStudy.DeletePurchaseOrderListItem(purchaseOrderList);
 					
 				} else if (itemType == 4) {
