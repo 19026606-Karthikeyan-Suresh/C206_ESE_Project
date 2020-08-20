@@ -127,8 +127,7 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	// ================================= (Bernadette) Option 1 Add, View, Delete
-	// Menu Item =================================
+	// ================================= (Bernadette) Option 1 Add, View, Delete Menu Item =================================
 
 	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
 		String output = "";
@@ -196,11 +195,9 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 2 Add, View, Delete Account
-	// =================================
+	// ================================= Option 2 Add, View, Delete Account =================================
 
-	// ================================= Option 3 Add, View, Delete Order
-	// ===================================
+	// ================================= Option 3 Add, View, Delete Order ===================================
 
 	// Kenneth
 	public static void viewAllOrder(ArrayList<Order> orderList) {
@@ -217,7 +214,6 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 4 Add, View, Purchase Order
-	// =================================
+	// ================================= Option 4 Add, View, Purchase Order =================================
 
 }
