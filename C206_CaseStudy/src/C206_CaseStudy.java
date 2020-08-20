@@ -130,7 +130,7 @@ public class C206_CaseStudy {
 		String output = "";
 		for (int i = 0; i < menuItemList.size(); i++) {
 
-			output += String.format("%-10s %-30s %-10s\n", menuItemList.get(i).getCategory(),
+			output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
 					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
 		}
 		return output;
