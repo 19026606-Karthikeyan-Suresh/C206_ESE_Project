@@ -56,15 +56,12 @@ public class C206_CaseStudyTest {
 		// Menu Item list is not null, so that can add a new menu item - boundary
 		assertNotNull("Check if there is valid Menu Item arraylist to add to", menuItemList);
 
-		// Given an empty list, after adding 1 menu item, the size of the list is 1 -
-		// normal
-		// The item just added is as same as the first item of the list
+		// Given an empty list, after adding 1 menu item, the size of the list is 1 - normal
 		C206_CaseStudy.addMenuItem(menuItemList, m1);
 		assertEquals("Check that Menu Item arraylist size is 1", 1, menuItemList.size());
 		assertSame("Check that Menu Item is added", m1, menuItemList.get(0));
 
 		// Add another menu item. test The size of the list is 2 - normal
-		// The item just added is as same as the second item of the list
 		C206_CaseStudy.addMenuItem(menuItemList, m2);
 		assertEquals("Check that Menu Item arraylist size is 2", 2, menuItemList.size());
 		assertSame("Check that Menu Item is added", m2, menuItemList.get(1));
@@ -76,14 +73,12 @@ public class C206_CaseStudyTest {
 		// Test if Menu Item list is not null but empty - boundary
 		assertNotNull("Test if there is valid Menu Item arraylist to view all menu items", menuItemList);
 
-		// test if the list of menu items retrieved from the C206 Case Study is empty
-		// -boundary
+		// test if the list of menu items retrieved from the C206 Case Study is empty - boundary
 		String allMenuItems = C206_CaseStudy.retrieveAllMenuItems(menuItemList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllMenuItemlist", testOutput, allMenuItems);
 
-		// Given an empty list, after adding 2 items, test if the size of the list is 2
-		// - normal
+		// Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
 		C206_CaseStudy.addMenuItem(menuItemList, m1);
 		C206_CaseStudy.addMenuItem(menuItemList, m2);
 		assertEquals("Test that Menu Item arraylist size is 2", 2, menuItemList.size());
