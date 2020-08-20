@@ -255,7 +255,7 @@ public class C206_CaseStudy {
 
 	}
 
-	// ================================= Option 2 Add, View, Delete Account =================================
+	// ================================= Option 2 (Ariezal) Add, View, Delete Account =================================
 	//Retrieving account list.
 	public static String retrieveAllAccounts(ArrayList<Account> accountList) {
 		String output = "";
