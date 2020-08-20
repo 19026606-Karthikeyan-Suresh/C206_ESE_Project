@@ -289,7 +289,32 @@ public class C206_CaseStudy {
 		System.out.println("New Account Added!");
 
 	}
-	
+	public static boolean doDelete(ArrayList<Account> accountList, String username, String password, String userRole) {
+		boolean isDeleted = false;
+		
+		for (int i = 0; i < accountList.size(); i++) {
+			String z = accountList.get(i).getUsername();
+			if (username.equalsIgnoreCase(z)) {
+				accountList.get(i).setPassword(password);
+				accountList.get(i).setUserRole(userRole);
+			}
+		}
+		return isDeleted;
+	}
+	public static void deleteAccount(ArrayList<Account> accountList) {
+		C206_CaseStudy.viewAllAccounts(accountList);
+		String username = Helper.readString("Enter Username > ");
+		String password = Helper.readString("Enter Password > ");
+		String userRole = Helper.readString("Enter User Role > ");
+		Boolean isDeleted = doDelete(accountList, username, password, userRole);
+		if (isDeleted == false) {
+			System.out.println("Account does not exist.");
+		} else {
+			System.out.println("Staff " + username + "'s account has been deleted.");
+		}
+		
+
+	}
 	
 	// ================================= Option 3 Add, View, Delete Order ===================================
 
