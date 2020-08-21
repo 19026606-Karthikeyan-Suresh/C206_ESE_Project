@@ -96,7 +96,8 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 3) {
 					// Delete Order
-					C206_CaseStudy.deleteOrder(orderList, user);
+					String itemName = Helper.readString("Enter name of Item in Menu: ");
+					C206_CaseStudy.deleteOrder(orderList, user, itemName);
 
 				} else {
 					System.out.println("Invalid type");
@@ -314,12 +315,11 @@ public class C206_CaseStudy {
 	}
 
 	// Kenneth
-	public static void deleteOrder(ArrayList<Order> orderList, String user) {
-		String orderD = Helper.readString("Enter menu item Name to delete: ");
+	public static void deleteOrder(ArrayList<Order> orderList, String user, String itemToDelete) {
 		for (int i = 0; i < orderList.size(); i++) {
 			if (user.equalsIgnoreCase(orderList.get(i).getUsername())) {
 				for (int j = 0; j < orderList.get(i).getItems().size(); j++) {
-					if (orderD.equalsIgnoreCase(orderList.get(i).getItems().get(j).getName())) {
+					if (itemToDelete.equalsIgnoreCase(orderList.get(i).getItems().get(j).getName())) {
 						orderList.get(i).getItems().remove(j);
 					}
 				}
