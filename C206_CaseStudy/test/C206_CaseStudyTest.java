@@ -161,6 +161,32 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that the item was properly deleted in OrderList and is empty", true /*testOutput*/, orderList.isEmpty());
 
 	}
+	
+	@Test //Karthik
+	public void testViewPurchaseOrderList() {
+		//Test if purchaseOrderList is null - it returns a error
+		assertNull("Test if there is a Purchase Order arraylist to view all Purchase Order items", purchaseOrderList);
+
+		// Test if purchaseOrderList is NOT null, it should display all the purchase order items 
+		// normal
+		assertNotNull("Test if there is a valid Purchase Order araylist to view all Purchase Order items", purchaseOrderList);
+	}
+	
+	public void testAddPurchaseOrderItem() { 
+		// Test if the purchaseOrderList has the item that is NOT available, the new item
+		// will be added - normal
+		C206_CaseStudy.addPurchaseOrder(purchaseOrderList, po1);
+		assertEquals("Test that Purchase Order Item arraylist size is 1", 1, purchaseOrderList.get(0));
+		assertSame("Test that Purchase Order Item is added", po1, purchaseOrderList.get(0));
+
+		// Test if the purchaseOrderList has the item that is NOT available, another new item
+		// will be added - normal
+		C206_CaseStudy.addPurchaseOrder(purchaseOrderList, po2);
+		assertEquals("Test that Purchase Order List arraylist size is 2", 2, purchaseOrderList.get(1));
+		assertSame("Test that Purchase Order Item is added", po1, purchaseOrderList.get(1));
+				
+		// Test if the  purchaseOrderList has the item is already available/existed, it should return an error - error
+	}
 
 	@After
 	public void tearDown() throws Exception {
