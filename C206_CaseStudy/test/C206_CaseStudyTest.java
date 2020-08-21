@@ -76,10 +76,10 @@ public class C206_CaseStudyTest {
 	
 	@Test //Kenneth
 	public void c206_testViewAllOrder() {
-		// Test if Menu Item list is not null but empty - error
-		assertNotNull("Test if there is valid Order Item arraylist to view all order items", orderList);
+		// Test if Order list is not null but empty - error
+		assertNotNull("Test if there is a valid Order arraylist to view all order items", orderList);
 
-		// test if the list of menu items retrieved from the C206 Case Study is empty -error
+		// test if the list of order retrieved from the C206 Case Study is empty -error
 		String allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
 		String testOutput = "";
 		assertEquals("Check that OrderList is not empty", testOutput, allOrders);
@@ -91,21 +91,40 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test //Kenneth
-//	public void c206_testStoreOrder() {
-//		// Test if Menu Item list is not null but empty - error
-//		assertNotNull("Test if there is valid Order Item arraylist to view all order items", orderList);
-//
-//		// test if the list of menu items retrieved from the C206 Case Study is empty -error
-//		String allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
-//		String testOutput = "";
-//		assertEquals("Check that OrderList is not empty", testOutput, allOrders);
-//
-//		orderList.add(o1);
-//		allOrders = C206_CaseStudy.viewAllOrder(orderList, "Jerry");
-//		assertNotNull("Test if there is valid Order Item to view in ArrayList", allOrders);
-//		
-//	}
+	public void c206_testStoreOrder() {
+		// Test if the user Order Menu Item list is null and empty - error
+		C206_CaseStudy.storeOrder(orderList, "Tom", orderMenuList, "Cakes"); //Tom is not a user account
+		assertNotEquals("Test if the menu item is not added as username is not valid Order Item arraylist to view all order items", "Cakes", orderList.get(0).getItems().get(0));
 
+		// test if the list of order menu items retrieved from the C206 Case Study is empty -error
+		C206_CaseStudy.storeOrder(orderList, "Jerry", orderMenuList, "Invalid Item");
+		String testOutput = "";
+		assertEquals("Check that item for orderMenuList was not added to OrderList and is empty", testOutput, orderList.get(0).getItems());
+
+		// test if the list of order menu items retrieved from the C206 Case Study is not empty -normal
+		C206_CaseStudy.storeOrder(orderList, "Jerry", orderMenuList, "Cakes");
+		testOutput = "Cakes";
+		assertEquals("Check that the item in orderMenuList was properly added to OrderList and is not empty", testOutput, orderList.get(0).getItems());
+
+	}
+
+	@Test //Kenneth
+	public void c206_testDeleteOrder() {
+		// Test if Order list is not null but empty - error
+		assertNotNull("Test if there is a valid Order arraylist to view all order items", orderList);
+
+		// test if the list of order items retrieved from the C206 Case Study is empty -error
+		C206_CaseStudy.deleteOrder(orderList, "Jerry", "Invalid Item");
+		String testOutput = "";
+		assertEquals("Check that item for orderMenuList was not added to OrderList and is empty", testOutput, orderList.get(0).getItems());
+
+		// test if the list of order menu items retrieved from the C206 Case Study is not empty -normal
+		C206_CaseStudy.storeOrder(orderList, "Jerry", orderMenuList, "Cakes");
+		C206_CaseStudy.deleteOrder(orderList, "Jerry", "Cakes");
+		testOutput = "Cakes";
+		assertNotEquals("Check that the item was properly deleted in OrderList and is empty", testOutput, orderList.get(0).getItems());
+
+	}
 
 	@After
 	public void tearDown() throws Exception {
