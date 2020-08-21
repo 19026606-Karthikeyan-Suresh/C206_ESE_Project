@@ -1,3 +1,4 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
@@ -305,11 +306,11 @@ public class C206_CaseStudy {
 	// Kenneth
 	public static String viewAllOrder(ArrayList<Order> orderList, String user) {
 		String s = "";
-		
+		String pattern = "Type: {1}, Name: {2}, Price: {3}\n";
 		for(Order i: orderList) {
 			if(user.equalsIgnoreCase(i.getUsername()))
 			for(MenuItem j: i.getItems()) {
-				 s += String.format("Type: %s, Name: %s, Price: %.2f\n", j.getCategory(), j.getName(), j.getPrice());
+				 s += MessageFormat.format(pattern, j.getCategory(), j.getName(), j.getPrice());
 		}
 	}
 		return s;
@@ -322,8 +323,7 @@ public class C206_CaseStudy {
 			if(user.equalsIgnoreCase(orderList.get(i).getUsername())) {
 				for(int j = 0; j< orderList.size(); j++) {
 					if(itemName.equalsIgnoreCase(menuItemList.get(j).getName())) {
-						orderList.get(i).getItems().add(
-								new MenuItem(menuItemList.get(j).getCategory(), menuItemList.get(j).getName(), menuItemList.get(j).getPrice()));
+						orderList.get(i).getItems().add(menuItemList.get(j));
 					}
 				}
 			}
