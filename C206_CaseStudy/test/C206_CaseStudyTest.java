@@ -16,6 +16,10 @@ public class C206_CaseStudyTest {
 	private Order o2;
 
 	// Ariezal
+	private Account a1;
+	private Account a2;
+		
+	// Ariezal
 	private ArrayList<Account> accountList;
 
 	// Karthik
@@ -38,6 +42,14 @@ public class C206_CaseStudyTest {
 		menuItemList = new ArrayList<MenuItem>();
 		m1 = new MenuItem("Snacks", "Biscuits", 3.70);
 		m2 = new MenuItem("Desserts", "Cakes", 3.00);
+		
+		// Ariezal
+		a1 = new Account("Danny", "canteen123","Staff" );
+		a2 = new Account("Biden", "canteen123","Staff" );
+
+				
+		// Bernadette
+		menuItemList = new ArrayList<MenuItem>();
 
 		// Kenneth
 		orderList = new ArrayList<Order>();
