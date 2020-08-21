@@ -64,6 +64,7 @@ public class C206_CaseStudyTest {
 		orderMenuList.add(m1);
 		orderMenuList.add(m2);
 		o1 = new Order("Jerry", "pending", false, orderMenuList);
+
 		
 		//Karthik
 		purchaseOrderList = new ArrayList<PurchaseOrder>();
@@ -117,9 +118,10 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is valid Order Item to view in ArrayList", allOrders);
 
 	}
+	
+	@Test //Kenneth
+	public void c206_testStoreOrder(){
 
-	@Test // Kenneth
-	public void testStoreOrder() {
 		// Test if the user Order Menu Item list is null and empty - error
 		C206_CaseStudy.storeOrder(orderList, "Tom", orderMenuList, "Cakes"); // Tom is not a user account
 		assertNotEquals(
@@ -142,26 +144,21 @@ public class C206_CaseStudyTest {
 
 	}
 
-	@Test // Kenneth
-	public void testDeleteOrder() {
+	@Test //Kenneth
+	public void c206_testDeleteOrder(){
 		// Test if Order list is not null but empty - error
 		assertNotNull("Test if there is a valid Order arraylist to view all order items", orderList);
 
-		// test if the list of order items retrieved from the C206 Case Study is empty
-		// -error
+		// test if the invalid item from the C206 Case Study was deleted  -error
 		C206_CaseStudy.deleteOrder(orderList, "Jerry", "Invalid Item");
-		String testOutput = "";
-		assertEquals("Check that item for orderMenuList was not added to OrderList and is empty", testOutput,
-				orderList.get(0).getItems());
-
-		// test if the list of order menu items retrieved from the C206 Case Study is
-		// not empty -normal
+		assertNull("Check that invalid item for orderMenuList was not deleted from OrderList and is empty", orderList.get(0).getItems());
+		
+		// test if the list of order menu items retrieved from the C206 Case Study is not empty -normal
 		C206_CaseStudy.storeOrder(orderList, "Jerry", orderMenuList, "Cakes");
-		C206_CaseStudy.deleteOrder(orderList, "Jerry", "Cakes");
-		testOutput = "Cakes";
-		assertNotEquals("Check that the item was properly deleted in OrderList and is empty", testOutput,
-				orderList.get(0).getItems());
-
+		C206_CaseStudy.deleteOrder(orderList, "Jerry");
+		String testOutput = "Cakes";
+		assertNotEquals("Check that the item was properly deleted in OrderList and is empty", testOutput, orderList.get(0).getItems());
+  
 	}
 
 	@After
