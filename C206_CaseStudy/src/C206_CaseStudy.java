@@ -104,7 +104,6 @@ public class C206_CaseStudy {
 					System.out.println("");
 					C206_CaseStudy.deleteOrder(orderList, user);
 
-
 				} else {
 					System.out.println("\nInvalid type");
 				}
