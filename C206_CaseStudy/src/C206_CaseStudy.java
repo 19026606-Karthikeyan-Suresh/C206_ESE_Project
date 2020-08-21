@@ -45,8 +45,7 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 2) {
 					// Add Menu Item
-					MenuItem m = inputMenuItem();
-					C206_CaseStudy.addMenuItem(menuItemList, m);
+					C206_CaseStudy.addMenuItem(menuItemList);
 
 				} else if (itemType == 3) {
 					// Delete Menu Item
