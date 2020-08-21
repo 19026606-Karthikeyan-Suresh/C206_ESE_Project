@@ -77,8 +77,9 @@ public class C206_CaseStudy {
 
 				} else {
 					System.out.println("Invalid type");
+				}
 
-				} else if (option == 3) {
+			} else if (option == 3) {
 					// Kenneth
 					C206_CaseStudy.setHeader("View, Add, Delete Order");
 					userTypeMenu();
