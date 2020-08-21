@@ -76,6 +76,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Menu Item arraylist size is 2", 2, menuItemList.get(1));
 		assertSame("Test that Menu Item is added", m1, menuItemList.get(1));
 		
+		// Test if the menu item list has the item is already available/existed, it should return an error - error
 		
 	}
 
