@@ -8,7 +8,7 @@ public class C206_CaseStudy {
 		// Bernadette
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
 		menuItemList.add(new MenuItem("Smoothies", "Strawberry Smoothie", 4.70));
-		menuItemList.add(new MenuItem("Soda", "Coca Cola", 1.50));
+		menuItemList.add(new MenuItem("Soda", "Sprite", 1.50));
 		menuItemList.add(new MenuItem("Sweets", "Lollipops", 2.00));
 
 		// Ariezal
@@ -70,7 +70,7 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 2) {
 					// Add Account
-					C206_CaseStudy.addAccount(accountList);
+//					C206_CaseStudy.addAccount(accountList);
 
 				} else if (itemType == 3) {
 					// Delete Account
@@ -167,13 +167,21 @@ public class C206_CaseStudy {
 	// ================================= Option 1 Add, View, Delete
 	// Menu Item =================================
 
+	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
+		String output = "";
+		for (int i = 0; i < menuItemList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10s\n", menuItemList.get(i).getCategory(),
+					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+		}
+		return output;
+	}
+	
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			C206_CaseStudy.setHeader("MENU ITEM LIST");
 			String output = String.format("%-10s %-30s %-10s\n", "CATEGORY", "NAME", "PRICE");
-
-			output += output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
-					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+			output += retrieveAllMenuItems(menuItemList);
 
 			System.out.println(output);
 		}
@@ -195,8 +203,7 @@ public class C206_CaseStudy {
 		return isAdded;
 	}
 
-	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem m2) {
-		C206_CaseStudy.viewAllMenuItem(menuItemList);
+	public static void addMenuItem(ArrayList<MenuItem> menuItemList) {
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");
@@ -225,7 +232,6 @@ public class C206_CaseStudy {
 	}
 
 	public static void deleteMenuItem(ArrayList<MenuItem> menuItemList) {
-		C206_CaseStudy.viewAllMenuItem(menuItemList);
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");

@@ -88,7 +88,7 @@ public class C206_CaseStudyTest {
 	public void testAddMenuItem() {
 		// Test if the menu item list has the item that is NOT available, the new item
 		// will be added - normal
-		C206_CaseStudy.addMenuItem(menuItemList);
+		C206_CaseStudy.addMenuItem(menuItemList, m1);
 		assertEquals("Test that Menu Item arraylist size is 1", 1, menuItemList.get(0));
 		assertSame("Test that Menu Item is added", m1, menuItemList.get(0));
 
