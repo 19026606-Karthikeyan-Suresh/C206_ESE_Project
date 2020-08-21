@@ -80,25 +80,27 @@ public class C206_CaseStudy {
 				}
 
 			} else if (option == 3) {
-					// Kenneth
-					C206_CaseStudy.setHeader("View, Add, Delete Order");
-					userTypeMenu();
-					String user = Helper.readString("Enter Account Name: ");
-					int itemType = Helper.readInt("Enter option to select type > ");
+				// Kenneth
+				C206_CaseStudy.setHeader("View, Add, Delete Order");
+				userTypeMenu();
+				String user = Helper.readString("Enter Account Name: ");
+				int itemType = Helper.readInt("Enter option to select type > ");
 
-					if (itemType == 1) {
-						// View All Order
-						System.out.println(C206_CaseStudy.viewAllOrder(orderList, user));
+				if (itemType == 1) {
+					// View All Order
+					System.out.println(C206_CaseStudy.viewAllOrder(orderList, user));
 
-					} else if (itemType == 2) {
-						// Add Order
-						String itemName = Helper.readString("Enter name of Item in Menu: ");
-						C206_CaseStudy.storeOrder(orderList, user, menuItemList, itemName);
+				} else if (itemType == 2) {
+					// Add Order
+					String itemName = Helper.readString("Enter name of Item in Menu: ");
+					C206_CaseStudy.storeOrder(orderList, user, menuItemList, itemName);
 
-					} else if (itemType == 3) {
-						// Delete Order
-						C206_CaseStudy.deleteOrder(orderList, user);
-						
+				} else if (itemType == 3) {
+					// Delete Order
+					String itemName = Helper.readString("Enter name of Item in Menu: ");
+					C206_CaseStudy.deleteOrder(orderList, user, itemName);
+
+
 				} else {
 					System.out.println("Invalid type");
 				}
@@ -329,13 +331,11 @@ public class C206_CaseStudy {
 	}
 
 	// Kenneth
-	public static void deleteOrder(ArrayList<Order> orderList, String user) {
-		String orderD = Helper.readString("Enter menu item Name to delete: ");
-		for(int i = 0; i< orderList.size(); i++) {
-			if(user.equalsIgnoreCase(orderList.get(i).getUsername())) {
-				for(int j = 0; j < orderList.get(i).getItems().size();j++) {
-					if(orderD.equalsIgnoreCase(
-							orderList.get(i).getItems().get(j).getName())) {
+	public static void deleteOrder(ArrayList<Order> orderList, String user, String itemToDelete) {
+		for (int i = 0; i < orderList.size(); i++) {
+			if (user.equalsIgnoreCase(orderList.get(i).getUsername())) {
+				for (int j = 0; j < orderList.get(i).getItems().size(); j++) {
+					if (itemToDelete.equalsIgnoreCase(orderList.get(i).getItems().get(j).getName())) {
 						orderList.get(i).getItems().remove(j);
 					}
 				}
