@@ -64,6 +64,9 @@ public class C206_CaseStudyTest {
 		orderMenuList.add(m1);
 		orderMenuList.add(m2);
 		o1 = new Order("Jerry", "pending", false, orderMenuList);
+		
+		//Karthik
+		purchaseOrderList = new ArrayList<PurchaseOrder>();
 	}
 
 	@Test
