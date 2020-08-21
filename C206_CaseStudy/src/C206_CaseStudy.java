@@ -183,13 +183,13 @@ public class C206_CaseStudy {
 
 	}
 
-	public static void addMenuItem(ArrayList<MenuItem> menuItemList) {
+	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem addItem) {
 		C206_CaseStudy.viewAllMenuItem(menuItemList);
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");
 
-		MenuItem addItem = new MenuItem(category, name, price);
+		addItem = new MenuItem(category, name, price);
 		
 		for (int i = 0; i < menuItemList.size(); i++) {
 			if (menuItemList.get(i) != null) {
