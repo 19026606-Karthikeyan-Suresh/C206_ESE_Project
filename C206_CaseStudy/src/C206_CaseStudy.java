@@ -70,7 +70,7 @@ public class C206_CaseStudy {
 					
 				} else if (itemType == 2) {
 					// Add Account
-					C206_CaseStudy.addAccount(accountList);
+					//TODO C206_CaseStudy.addAccount(accountList);
 
 				} else if (itemType == 3) {
 					// Delete Account
@@ -82,28 +82,30 @@ public class C206_CaseStudy {
 
 			} else if (option == 3) {
 				// Kenneth
-				C206_CaseStudy.setHeader("View, Add, Delete Order");
-				userTypeMenu();
-				String user = Helper.readString("Enter Account Name: ");
+				C206_CaseStudy.setHeader("1. View Order(s) \n2. Add Order \n3. Delete Order");
 				int itemType = Helper.readInt("Enter option to select type > ");
-
+				String user = Helper.readString("Enter Account Name: ");
+				System.out.println("");
+				
+				String itemName;
 				if (itemType == 1) {
 					// View All Order
+					System.out.println("");
 					System.out.println(C206_CaseStudy.viewAllOrder(orderList, user));
 
 				} else if (itemType == 2) {
 					// Add Order
-					String itemName = Helper.readString("Enter name of Item in Menu: ");
+					itemName = Helper.readString("Enter name of Item in Menu: ");
+					System.out.println("");					
 					C206_CaseStudy.storeOrder(orderList, user, menuItemList, itemName);
 
 				} else if (itemType == 3) {
 					// Delete Order
-					String itemName = Helper.readString("Enter name of Item in Menu: ");
-					C206_CaseStudy.deleteOrder(orderList, user, itemName);
-
+					System.out.println("");
+					C206_CaseStudy.deleteOrder(orderList, user);
 
 				} else {
-					System.out.println("Invalid type");
+					System.out.println("\nInvalid type");
 				}
 
 			} else if (option == 4) {
@@ -287,41 +289,60 @@ public class C206_CaseStudy {
 	// Kenneth
 	public static String viewAllOrder(ArrayList<Order> orderList, String user) {
 		String s = "";
-		String pattern = "Type: {1}, Name: {2}, Price: {3}\n";
+		int u = 0;
 		for(Order i: orderList) {
-			if(user.equalsIgnoreCase(i.getUsername()))
-			for(MenuItem j: i.getItems()) {
-				 s += MessageFormat.format(pattern, j.getCategory(), j.getName(), j.getPrice());
+			if(user.equalsIgnoreCase(i.getUsername())) {
+				u++;
+				for(MenuItem j: i.getItems()) {
+					String pattern = "Type: %s, Name: %s, Price: %.2f\n";
+					s += String.format(pattern, j.getCategory(), j.getName(), j.getPrice());
+				}
+			}
 		}
-	}
+		if(u == 0)
+			System.out.println("Invalid Account name!\n");
 		return s;
 	}
 
 
 	// Kenneth
-	public static void storeOrder(ArrayList<Order> orderList, String user,ArrayList<MenuItem> menuItemList, String itemName) {
+	public static void storeOrder(ArrayList<Order> orderList, String user, ArrayList<MenuItem> menuItemList, String itemName) {
+		int u = 0;
+		int k = 0;
 		for(int i = 0; i< orderList.size(); i++) {
-			if(user.equalsIgnoreCase(orderList.get(i).getUsername())) {
+			if(user.equalsIgnoreCase(orderList.get(i).getUsername())) { 
+				u++;
 				for(int j = 0; j< orderList.size(); j++) {
 					if(itemName.equalsIgnoreCase(menuItemList.get(j).getName())) {
+						k++;
 						orderList.get(i).getItems().add(menuItemList.get(j));
+						System.out.println("Item Stored!");
 					}
 				}
 			}
 		}
+		if(u == 0)
+			System.out.println("Invalid Account name!");
+		else if(k == 0)
+			System.out.println("Invalid Menu Item!");
 	}
 
 	// Kenneth
-	public static void deleteOrder(ArrayList<Order> orderList, String user, String itemToDelete) {
+	public static void deleteOrder(ArrayList<Order> orderList, String user) {
+		int u = 0;
 		for (int i = 0; i < orderList.size(); i++) {
-			if (user.equalsIgnoreCase(orderList.get(i).getUsername())) {
-				for (int j = 0; j < orderList.get(i).getItems().size(); j++) {
-					if (itemToDelete.equalsIgnoreCase(orderList.get(i).getItems().get(j).getName())) {
-						orderList.get(i).getItems().remove(j);
-					}
-				}
+			if (user.equalsIgnoreCase(orderList.get(i).getUsername())) { 
+				u++;
+				orderList.remove(i);
+				System.out.println("Orders Deleted!");
 			}
+//				for (int j = 0; j < orderList.get(i).getItems().size(); j++) {
+//					if (itemToDelete.equalsIgnoreCase(orderList.get(i).getItems().get(j).getName())) 
+//						orderList.get(i).getItems().remove(j);
+//				}
 		}
+		if(u == 0)
+			System.out.println("Invalid Account name!");
 	}
 
 	// ================================= Option 4 Add, View, Purchase Order=================================
