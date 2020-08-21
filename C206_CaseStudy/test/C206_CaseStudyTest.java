@@ -53,7 +53,7 @@ public class C206_CaseStudyTest {
 
 		//Karthik
 		po1 = new PurchaseOrder("Strawberry", 10, 10.50, "21/08/2020");
-		po1 = new PurchaseOrder("Blueberry", 15, 12.40, "21/08/2020");	
+		po1 = new PurchaseOrder("Banana", 15, 12.40, "21/08/2020");	
 		
 		// Bernadette
 		menuItemList = new ArrayList<MenuItem>();
