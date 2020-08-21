@@ -45,7 +45,8 @@ public class C206_CaseStudy {
 
 				} else if (itemType == 2) {
 					// Add Menu Item
-					C206_CaseStudy.addMenuItem(menuItemList);
+					MenuItem m = inputMenuItem();
+					C206_CaseStudy.addMenuItem(menuItemList, m);
 
 				} else if (itemType == 3) {
 					// Delete Menu Item
@@ -61,11 +62,11 @@ public class C206_CaseStudy {
 				userTypeMenu();
 
 				int itemType = Helper.readInt("Enter option to select type > ");
-
+		
 				if (itemType == 1) {
 					// View All Accounts
 					C206_CaseStudy.viewAllAccounts(accountList);
-
+					
 				} else if (itemType == 2) {
 					// Add Account
 					C206_CaseStudy.addAccount(accountList);
@@ -99,6 +100,7 @@ public class C206_CaseStudy {
 					String itemName = Helper.readString("Enter name of Item in Menu: ");
 					C206_CaseStudy.deleteOrder(orderList, user, itemName);
 
+
 				} else {
 					System.out.println("Invalid type");
 				}
@@ -109,22 +111,23 @@ public class C206_CaseStudy {
 				userTypeMenu();
 
 				int itemType = Helper.readInt("Enter option to select type > ");
-
+				
 				if (itemType == 1) {
-					// View all purchase orders
+					//View all purchase orders
 					C206_CaseStudy.viewAllPurchaseOrders(purchaseOrderList);
-
+					
 				} else if (itemType == 2) {
 					// Add item to purchase
 					C206_CaseStudy.addPurchaseOrder(purchaseOrderList);
-
+					
 				} else if (itemType == 3) {
-					// Delete purchase in order list
+					//Delete purchase in order list
 					C206_CaseStudy.deletePurchaseOrder(purchaseOrderList);
-
+					
 				} else {
 					System.out.println("Invalid type");
 				}
+					
 
 			} else if (option == 5) {
 
@@ -165,27 +168,39 @@ public class C206_CaseStudy {
 	// ================================= (Bernadette) Option 1 Add, View, Delete
 	// Menu Item =================================
 
+	public static String retrieveAllMenuItems(ArrayList<MenuItem> menuItemList) {
+		String output = "";
+		for (int i = 0; i < menuItemList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
+					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+
+		}
+		return output;
+	}
+
 	public static void viewAllMenuItem(ArrayList<MenuItem> menuItemList) {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			C206_CaseStudy.setHeader("MENU ITEM LIST");
 			String output = String.format("%-10s %-30s %-10s\n", "CATEGORY", "NAME", "PRICE");
-			output += String.format("%-10s %-30s %-10.2f\n", menuItemList.get(i).getCategory(),
-					menuItemList.get(i).getName(), menuItemList.get(i).getPrice());
+			output += retrieveAllMenuItems(menuItemList);
 			System.out.println(output);
 		}
 
 	}
 
-	public static void addMenuItem(ArrayList<MenuItem> menuItemList) {
+	public static MenuItem inputMenuItem() {
 		String category = Helper.readString("Enter category > ");
 		String name = Helper.readString("Enter name > ");
 		double price = Helper.readDouble("Enter price > ");
+
 		MenuItem m = new MenuItem(category, name, price);
-		for (int i = 0; i < menuItemList.size(); i++) {
-			if (menuItemList.get(i) != null) {
-				menuItemList.add(m);
-			}
-		}
+		return m;
+	}
+
+	public static void addMenuItem(ArrayList<MenuItem> menuItemList, MenuItem m) {
+
+		menuItemList.add(m);
 		System.out.println("Menu Item Added");
 
 	}
@@ -216,6 +231,7 @@ public class C206_CaseStudy {
 		}
 
 	}
+
 
 	// ================================= Option 2 (Ariezal) Add, View, Delete
 	// Account =================================
@@ -289,25 +305,25 @@ public class C206_CaseStudy {
 	// Kenneth
 	public static String viewAllOrder(ArrayList<Order> orderList, String user) {
 		String s = "";
-
-		for (Order i : orderList) {
-			if (user.equalsIgnoreCase(i.getUsername()))
-				for (MenuItem j : i.getItems()) {
-					s += String.format("Type: %s, Name: %s, Price: %.2f\n", j.getCategory(), j.getName(), j.getPrice());
-				}
+		
+		for(Order i: orderList) {
+			if(user.equalsIgnoreCase(i.getUsername()))
+			for(MenuItem j: i.getItems()) {
+				 s += String.format("Type: %s, Name: %s, Price: %.2f\n", j.getCategory(), j.getName(), j.getPrice());
 		}
+	}
 		return s;
 	}
 
+
 	// Kenneth
-	public static void storeOrder(ArrayList<Order> orderList, String user, ArrayList<MenuItem> menuItemList,
-			String itemName) {
-		for (int i = 0; i < orderList.size(); i++) {
-			if (user.equalsIgnoreCase(orderList.get(i).getUsername())) {
-				for (int j = 0; j < orderList.size(); j++) {
-					if (itemName.equalsIgnoreCase(menuItemList.get(j).getName())) {
-						orderList.get(i).getItems().add(new MenuItem(menuItemList.get(j).getCategory(),
-								menuItemList.get(j).getName(), menuItemList.get(j).getPrice()));
+	public static void storeOrder(ArrayList<Order> orderList, String user,ArrayList<MenuItem> menuItemList, String itemName) {
+		for(int i = 0; i< orderList.size(); i++) {
+			if(user.equalsIgnoreCase(orderList.get(i).getUsername())) {
+				for(int j = 0; j< orderList.size(); j++) {
+					if(itemName.equalsIgnoreCase(menuItemList.get(j).getName())) {
+						orderList.get(i).getItems().add(
+								new MenuItem(menuItemList.get(j).getCategory(), menuItemList.get(j).getName(), menuItemList.get(j).getPrice()));
 					}
 				}
 			}
@@ -344,5 +360,5 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 
 	}
-
+    
 }
