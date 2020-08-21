@@ -7,8 +7,9 @@ public class C206_CaseStudy {
 
 		// Bernadette
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>();
-		menuItemList.add(new MenuItem("Smoothies", "Strawberry", 4.70));
+		menuItemList.add(new MenuItem("Smoothies", "Strawberry Smoothie", 4.70));
 		menuItemList.add(new MenuItem("Soda", "Coca Cola", 1.50));
+		menuItemList.add(new MenuItem("Sweets", "Lollipops", 2.00));
 
 		// Ariezal
 		ArrayList<Account> accountList = new ArrayList<Account>();
