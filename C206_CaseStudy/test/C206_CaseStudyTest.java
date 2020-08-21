@@ -73,29 +73,6 @@ public class C206_CaseStudyTest {
 		assertSame("Check that Menu Item is added", m2, menuItemList.get(1));
 
 	}
-
-	@Test // Bernadette
-	public void c206_retrieveAllMenuItemTest() {
-		// Test if Menu Item list is not null but empty - boundary
-		assertNotNull("Test if there is valid Menu Item arraylist to retrieve menu items", menuItemList);
-
-		// test if the list of menu items retrieved from the C206 Case Study is empty - boundary
-		String allMenuItems = C206_CaseStudy.retrieveAllMenuItems(menuItemList);
-		String testOutput = "";
-		assertEquals("Check that ViewAllMenuItemlist", testOutput, allMenuItems);
-
-		// Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
-		C206_CaseStudy.addMenuItem(menuItemList, m1);
-		C206_CaseStudy.addMenuItem(menuItemList, m2);
-		assertEquals("Test that Menu Item arraylist size is 2", 2, menuItemList.size());
-
-		// test if the expected output string same as the list of menu items retrieved
-		// from the C206 Case Study
-		allMenuItems = C206_CaseStudy.retrieveAllMenuItems(menuItemList);
-		testOutput = String.format("%-10s %-30s %-10s\n", "Snacks", "Biscuits", 3.70);
-		testOutput += String.format("%-10s %-30s %-10s\n", "Desserts", "Cakes", 3.00);
-		assertEquals("Test that ViewAllMenuItemlist", testOutput, allMenuItems);
-	}
 	
 	@Test //Kenneth
 	public void c206_testViewAllOrder() {
