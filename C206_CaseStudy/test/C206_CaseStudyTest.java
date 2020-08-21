@@ -18,6 +18,10 @@ public class C206_CaseStudyTest {
 	// Ariezal
 	private Account a1;
 	private Account a2;
+	
+	//Karthik
+	private PurchaseOrder po1;
+	private PurchaseOrder po2;
 		
 	// Ariezal
 	private ArrayList<Account> accountList;
@@ -48,7 +52,10 @@ public class C206_CaseStudyTest {
 		a1 = new Account("Danny", "canteen123","Staff" );
 		a2 = new Account("Biden", "canteen123","Staff" );
 
-				
+		//Karthik
+		po1 = new PurchaseOrder("Strawberry", 10, 10.50, "21/08/2020");
+		po1 = new PurchaseOrder("Blueberry", 15, 12.40, "21/08/2020");	
+		
 		// Bernadette
 		menuItemList = new ArrayList<MenuItem>();
 
